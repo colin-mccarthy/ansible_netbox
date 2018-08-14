@@ -1,0 +1,14 @@
+- name: Create {{prefix.prefix}} Prefix
+ uri:
+   url: "{{netbox_ipam}}/prefixes/"
+   method: POST
+   status_code: 201,500
+   body_format: json
+   headers:
+     "Authorization": "{{netbox_token}}"
+   body:
+     {
+       prefix: "{{prefix.prefix}}",
+       status: "{{status_id}}"
+     }
+ when: prefix_data.json.count == 0
