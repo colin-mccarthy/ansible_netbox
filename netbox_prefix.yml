@@ -12,3 +12,10 @@
        status: "{{status_id}}"
      }
  when: prefix_data.json.count == 0
+ 
+ 
+# "I upgraded to jinja2 v2.10 and Ansible 2.7 develop and added `jinja2_native = True` under `[defaults]` in ansible.cfg 
+# Now when I run my playbook, Ansible sends `{"status": 0, "prefix": "10.17.0.0/16"}` 
+# (i.e. no quotes around the status integer) and I get a 201 instead of a 500."
+#
+#
